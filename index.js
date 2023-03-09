@@ -16,11 +16,38 @@
         'scissors'
     ];
 
-    var randomString = Math.floor(Math.random() * textArray.length);
-    var callRandomString = textArray[randomString];
+    let randomString = Math.floor(Math.random() * textArray.length);
+    let gameArray = textArray[randomString];
 
     function getComputerChoice() {
-        console.log(callRandomString);  
+        return gameArray;
     }
 
+    const playerChoice = 'rock';
+
+    function getPlayerChoice() {
+        return playerChoice;
+    }
+
+    function playRound (getPlayerChoice, getComputerChoice) {
+        if ((getPlayerChoice == 'rock' && getComputerChoice == 'scissors') || 
+            (getPlayerChoice == 'paper' && getComputerChoice == 'rock') ||
+            (getPlayerChoice == 'scissors' && getComputerChoice == 'paper')) {
+            console.log('You win!');
+        } 
+        else if ((getPlayerChoice == 'rock' && getComputerChoice == 'rock') ||
+                (getPlayerChoice == 'paper' && getComputerChoice == 'paper') ||
+                (getPlayerChoice == 'scissors' && getComputerChoice == 'scissors')) {
+                    console.log('It\'s a tie!');
+                }
+        else if ((getPlayerChoice == 'rock' && getComputerChoice == 'paper') ||
+                (getPlayerChoice == 'paper' && getComputerChoice == 'scissors') ||
+                (getPlayerChoice == 'scissors' && getComputerChoice == 'rock')) {
+                    console.log('You lose!');
+                }
+    }
+
+
     getComputerChoice();
+    getPlayerChoice();
+    playRound(getPlayerChoice, getComputerChoice);
