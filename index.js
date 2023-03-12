@@ -10,44 +10,35 @@
     /*if user input is scissors and computer input is scissors, dispay message 'it's a tie'*/
     /*if user input is scissors and computer input is rock, display message 'you win'*/
     
-    var textArray = [
+    const textArray = [
         'rock',
         'paper',
         'scissors'
     ];
 
     let randomString = Math.floor(Math.random() * textArray.length);
-    let gameArray = textArray[randomString];
-
-    function getComputerChoice() {
-        return gameArray;
+    function getComputerChoice() { 
+        return textArray[randomString];
     }
 
     const playerChoice = 'rock';
 
-    function getPlayerChoice() {
-        return playerChoice;
-    }
-
-    function playRound (getPlayerChoice, getComputerChoice) {
-        if ((getPlayerChoice == 'rock' && getComputerChoice == 'scissors') || 
-            (getPlayerChoice == 'paper' && getComputerChoice == 'rock') ||
-            (getPlayerChoice == 'scissors' && getComputerChoice == 'paper')) {
+    function playRound (playerChoice, getComputerChoice) {
+        if ((playerChoice.toLowerCase() == 'rock' && getComputerChoice() == 'scissors') ||
+            (playerChoice.toLowerCase() == 'paper' && getComputerChoice() == 'rock') ||
+            (playerChoice.toLowerCase() == 'scissors' && getComputerChoice() == 'paper')) {
             console.log('You win!');
         } 
-        else if ((getPlayerChoice == 'rock' && getComputerChoice == 'rock') ||
-                (getPlayerChoice == 'paper' && getComputerChoice == 'paper') ||
-                (getPlayerChoice == 'scissors' && getComputerChoice == 'scissors')) {
+        else if ((playerChoice.toLowerCase() == 'rock' && getComputerChoice() == 'rock') ||
+                (playerChoice.toLowerCase() == 'paper' && getComputerChoice() == 'paper') ||
+                (playerChoice.toLowerCase() == 'scissors' && getComputerChoice() == 'scissors')) {
                     console.log('It\'s a tie!');
                 }
-        else if ((getPlayerChoice == 'rock' && getComputerChoice == 'paper') ||
-                (getPlayerChoice == 'paper' && getComputerChoice == 'scissors') ||
-                (getPlayerChoice == 'scissors' && getComputerChoice == 'rock')) {
+        else if ((playerChoice.toLowerCase() == 'rock' && getComputerChoice() == 'paper') ||
+                (playerChoice.toLowerCase() == 'paper' && getComputerChoice() == 'scissors') ||
+                (playerChoice.toLowerCase() == 'scissors' && getComputerChoice() == 'rock')) {
                     console.log('You lose!');
                 }
     }
 
-
-    getComputerChoice();
-    getPlayerChoice();
-    playRound(getPlayerChoice, getComputerChoice);
+    playRound(playerChoice, getComputerChoice);
