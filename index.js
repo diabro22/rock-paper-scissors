@@ -44,4 +44,21 @@
         }
     }
 
+    /*New function game simulates 5 rounds
+    Count score after each round
+    After 5 rounds, stop game and return final score from user perspective
+    If user score higher than computer score after 5 rounds, declare user winner
+    If user score lower than computer score, declare user loser
+    If user score same as computer score, declare a tie*/
+
+    function game() {
+        for(let i = 0; i > 5; i++) {
+            let n = /*user wins*/
+            playRound(playerChoice, getComputerChoice);
+            if (playRound() == 'You win!') {
+                n++
+            }
+            }
+        }
+
     console.log(playRound(playerChoice, getComputerChoice));
