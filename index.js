@@ -21,24 +21,27 @@
         return textArray[randomString];
     }
 
-    const playerChoice = 'rock';
+    let playerChoice = prompt('Rock, Paper, or Scissors?');
 
     function playRound (playerChoice, getComputerChoice) {
         if ((playerChoice.toLowerCase() == 'rock' && getComputerChoice() == 'scissors') ||
             (playerChoice.toLowerCase() == 'paper' && getComputerChoice() == 'rock') ||
             (playerChoice.toLowerCase() == 'scissors' && getComputerChoice() == 'paper')) {
-            console.log('You win!');
+            return 'You win!';
         } 
         else if ((playerChoice.toLowerCase() == 'rock' && getComputerChoice() == 'rock') ||
                 (playerChoice.toLowerCase() == 'paper' && getComputerChoice() == 'paper') ||
                 (playerChoice.toLowerCase() == 'scissors' && getComputerChoice() == 'scissors')) {
-                    console.log('It\'s a tie!');
+                    return 'It\'s a tie!';
                 }
         else if ((playerChoice.toLowerCase() == 'rock' && getComputerChoice() == 'paper') ||
                 (playerChoice.toLowerCase() == 'paper' && getComputerChoice() == 'scissors') ||
                 (playerChoice.toLowerCase() == 'scissors' && getComputerChoice() == 'rock')) {
-                    console.log('You lose!');
+                    return 'You lose!';
                 }
+        else {
+            return 'Please enter a valid option';
+        }
     }
 
-    playRound(playerChoice, getComputerChoice);
+    console.log(playRound(playerChoice, getComputerChoice));
