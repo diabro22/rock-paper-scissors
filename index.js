@@ -22,35 +22,44 @@
     const playerChoice = prompt('Enter rock, paper or scissors:');
 
     const playerSelection = playerChoice.toLowerCase();
-    const computerSelection = getComputerChoice().toLowerCase();
 
-    let i = 0;
+    let wins = 0;
+    let losses = 0;
+    let ties = 0;
 
-    function playRound (playerSelection, computerSelection) {
+    function playRound (playerSelection) {
+        const computerSelection = getComputerChoice().toLowerCase();
         if ((playerSelection == 'rock' && computerSelection =='scissors') ||
         (playerSelection == 'paper' && computerSelection == 'rock') ||
         (playerSelection == 'scissors' && computerSelection == 'paper'))
-            {i++;
-            return 'You win!'}
+            {wins++;
+            console.log('You win!');
+            }
         else if (playerSelection == computerSelection) {
-            return 'It\'s a tie!'
+            ties++;
+            console.log('It\'s a tie!');
         }
-        else {i--;
-            return 'You lose!'}
-    }
+        else {losses++;
+            console.log('You lose!');
+    }}
 
     function game() {
-        playRound(playerSelection, computerSelection);
-        playRound(playerSelection, computerSelection);
-        playRound(playerSelection, computerSelection);
-        playRound(playerSelection, computerSelection);
-        playRound(playerSelection, computerSelection);
+        playRound(playerSelection);
+        
+        playRound(playerSelection);
+        
+        playRound(playerSelection);
+        
+        playRound(playerSelection);
+        
+        playRound(playerSelection);
+        
 
 
-        if (i > 0) {
+        if (wins > losses && wins > ties) {
             console.log('You win the game!')
         }
-        else if (i < 0) {
+        else if (losses > wins && losses > ties) {
             console.log('You lose the game!')
         }
         else {
