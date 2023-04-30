@@ -19,25 +19,44 @@
         return gameArray[random];
     }
 
-    const playerChoice = 'Rock';
+    const playerChoice = prompt('Enter rock, paper or scissors:');
 
     const playerSelection = playerChoice.toLowerCase();
     const computerSelection = getComputerChoice().toLowerCase();
+
+    let i = 0;
 
     function playRound (playerSelection, computerSelection) {
         if ((playerSelection == 'rock' && computerSelection =='scissors') ||
         (playerSelection == 'paper' && computerSelection == 'rock') ||
         (playerSelection == 'scissors' && computerSelection == 'paper'))
-            {console.log('You Win!')}
+            {i++;
+            return 'You win!'}
         else if (playerSelection == computerSelection) {
+            return 'It\'s a tie!'
+        }
+        else {i--;
+            return 'You lose!'}
+    }
+
+    function game() {
+        playRound(playerSelection, computerSelection);
+        playRound(playerSelection, computerSelection);
+        playRound(playerSelection, computerSelection);
+        playRound(playerSelection, computerSelection);
+        playRound(playerSelection, computerSelection);
+
+
+        if (i > 0) {
+            console.log('You win the game!')
+        }
+        else if (i < 0) {
+            console.log('You lose the game!')
+        }
+        else {
             console.log('It\'s a tie!')
         }
-        else {console.log('You lose!')}
     }
 
     /*Execution*/
-    playRound(playerSelection, computerSelection);
-
-
-    /*Bugs:
-        getComputerChoice returns string # along with accompanying text*/
+    game();
