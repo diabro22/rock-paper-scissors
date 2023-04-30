@@ -12,32 +12,32 @@
 
     /*Define Functions*/
     
-    function getComputerChoice () {
+    function getComputerChoice() {
         const gameArray = ['Rock', 'Paper', 'Scissors'];
 
         const random = Math.floor(Math.random() * gameArray.length);
-        return (random, gameArray[random]);
+        return gameArray[random];
     }
 
-    const playerSelection = 'Rock';
-    const computerSelection = getComputerChoice();
+    const playerChoice = 'Rock';
+
+    const playerSelection = playerChoice.toLowerCase();
+    const computerSelection = getComputerChoice().toLowerCase();
 
     function playRound (playerSelection, computerSelection) {
         if ((playerSelection == 'rock' && computerSelection =='scissors') ||
         (playerSelection == 'paper' && computerSelection == 'rock') ||
         (playerSelection == 'scissors' && computerSelection == 'paper'))
             {console.log('You Win!')}
-        else {console.log('Placeholder')};
+        else if (playerSelection == computerSelection) {
+            console.log('It\'s a tie!')
+        }
+        else {console.log('You lose!')}
     }
 
     /*Execution*/
-    getComputerChoice();
-    console.log(playerSelection);
+    playRound(playerSelection, computerSelection);
 
 
     /*Bugs:
         getComputerChoice returns string # along with accompanying text*/
-
-    /*Updates for build:
-        Make user and computer input case insensitive
-        */
